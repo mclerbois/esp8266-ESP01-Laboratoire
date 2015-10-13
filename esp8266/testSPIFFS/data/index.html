@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body bgcolor="#E6E6FA">        
+	<h1>ESP8266-Processing web Server</h1>
+	<p>Measurement of analog input  A0= <span id="A0"></span></p>
+	<p>State of digital input 7= <span id="D7"></span>&nbsp;&nbsp;<canvas id="Led" width="10" height="10"></p>
+	<hr>
+	<form name="input" action="changePIN" method="GET">
+	<input id="P9" type="checkbox" name="P" value="P9" autocomplete="off">Set of clear pin 9, check and submit.<br>
+	<input id="P8" type="checkbox" name="P" value="P8" autocomplete="off">Set of clear pin 8, check and submit.<br>
+	<input type="submit" value="Submit">
+	</form>
+	<p><input id="z" type="button" name="but" value="but" onclick="toto();"></p>
+	<script type="text/javascript">
+		var A0=1023;D7=0;P9=0;
+		if (A0>800) 
+			document.getElementById("A0").innerHTML=A0+" !!! A0 is to high <br>";
+		else 
+			document.getElementById("A0").innerHTML=A0;
+		document.getElementById("D7").innerHTML=D7;
+		var c=document.getElementById("Led");
+		var ctx=c.getContext("2d");
+		ctx.rect(0,0,10,10);
+		if (D7==1) 
+			ctx.fillStyle="#FF0000"; 
+		else 
+			ctx.fillStyle="#600000";
+		ctx.fill();
+		document.getElementById("P9").checked=(P9)?true:false;
+		
+		function toto() {
+			var xhttp;
+			if (window.XMLHttpRequest) {
+				xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange=function() {
+					if (xhttp.readyState == 4 && xhttp.status == 200) {
+						if (xhttp.responseText=="true")
+							ctx.fillStyle="#FF0000"; 
+						else 
+							ctx.fillStyle="#600000";
+						ctx.fill();
+						}
+					};
+				xhttp.open("GET", "digitalRead(2)", true);
+				xhttp.send();
+				}
+			}
+		</script>
+</body>
+</html>
