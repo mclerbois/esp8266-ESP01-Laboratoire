@@ -1,39 +1,47 @@
 /*
- ESP8266 Blink by Simon Peter
- Blink the blue LED on the ESP-01 module
- This example code is in the public domain
- 
- The blue LED on the ESP-01 module is connected to GPIO1 
- (which is also the TXD pin; so we cannot use Serial.print() at the same time)
- 
- Note that this sketch uses BUILTIN_LED to find the pin with the internal LED
+  M. Clerbois
+  17/10/2015
+
+  Faire clignoter une diode led soit
+    une fois toutes les deux secondes
+    ou toutes les 0.4 Secondes.
+
+    La cadence dépend de l'état d'un bouton poussoir.
 */
 
-#define GPIO_0     0 // INPUT !!! Flash button 
-#define GPIO_2     2
-#define GPIO_4     4
-#define GPIO_5     5
-#define GPIO_12    12
-#define GPIO_13    13
-#define GPIO_14    14
-#define GPIO_15    15 // 10K pull down for startupt
+#define USER_BOARD      ESP01   // déclaration de la carte utilisée ESP01 ou ESP201
 
-#define LED        13
-#define PUSHBUTTON GPIO_0 
+#include "boards.h"       // déclaration des bornes des cartes
+
+#define LED        GPIO_2      // GPIO_2 connected to LED 
+#define PUSHBUTTON GPIO_0      // connected to a push button
 
 
 void setup() {
-  pinMode( LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  pinMode(PUSHBUTTON,INPUT);
+  pinMode(LED, OUTPUT);       // Initialize the GPIO_2 pin as an output
+  pinMode(PUSHBUTTON,INPUT);  // Initialize the GPIO_0 pin as an input
  }
 
 // the loop function runs over and over again forever
 void loop() {
+  /*
+   * long tempo -> on déclare une variable nommée tempo dont le type est entier long 32 bits.
+   * long tempo = --> on déclare est donne une valeur à cette variable
+   * long tempo = test si différent de 0 ? valeur si vrai : valeur si faux
+   *              test si different de 0, on lit l'entrée GPIO_0 le résultat vaut: 
+   *                0 si le bouton poussoir est activé
+   *                1 si le bouton poussoir est relaché
+   *                
+   * Si le bouton poussoir est relaché, la temporisation vaudra 1000 mSec.               
+   * Si le bouton poussoir est activé, la temporisation vaudra 200 mSec.
+   * 
+   */
   long tempo= digitalRead(PUSHBUTTON) ? 1000 : 200;
-  digitalWrite( LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-                                    // but actually the LED is on; this is because 
-                                    // it is acive low on the ESP-01)
-  delay(tempo);                      // Wait for a second
-  digitalWrite( LED, HIGH);  // Turn the LED off by making the voltage HIGH
-  delay(tempo);                      // Wait for two seconds (to demonstrate the active low LED)
+  digitalWrite( LED, LOW);           // Turn the LED on                                
+  delay(tempo);                      // Wait for a 1000 or 200 mSec
+  digitalWrite( LED, HIGH);          // Turn the LED off 
+  delay(tempo);                      // Wait for a 1000 or 200 mSec
 }
+
+
+
