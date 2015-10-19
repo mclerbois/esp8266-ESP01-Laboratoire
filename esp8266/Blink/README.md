@@ -32,5 +32,9 @@ Le fichier "blink.ino" contient le code du programme.
 
 Les documents accessibles en ligne.
 
-- pinMode, http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.PinMode
-- 
+- pinMode(..., ...), http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.PinMode
+- digitalWrite(..., ...), http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.DigitalWrite
+- millis(...), http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.Millis
+
+
+
