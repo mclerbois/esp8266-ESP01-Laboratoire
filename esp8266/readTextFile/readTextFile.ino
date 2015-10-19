@@ -16,7 +16,9 @@ void setup() {
   Serial.println("");
   delay(1000);
   Serial.println("Mounting FS...");
-
+  
+  // activation du système de fichiers
+  
   if (!SPIFFS.begin()) 
     Serial.println("Failed to mount file system");
   else {
@@ -34,7 +36,7 @@ void loop() {
     }
 }
 
-
+// lecture et affichage du contenu ligne par ligne
 void readFile(String filenamte)
 {
   File f=SPIFFS.open(filenamte,"r");
