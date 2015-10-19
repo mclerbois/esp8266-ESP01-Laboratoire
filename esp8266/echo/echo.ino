@@ -18,10 +18,10 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
  
-  if (Serial.available()>0) { // data received
-    String message=Serial.readString();
+  if (Serial.available()>0) { // if data received
+    String message=Serial.readString(); // lire une ligne complète
     Serial.print("Message received: ");
-    Serial.println(message);
+    Serial.println(message);  // retransmettre le message reçu
     }
     
 }
