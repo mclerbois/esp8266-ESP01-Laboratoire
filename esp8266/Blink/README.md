@@ -28,3 +28,7 @@ Le fichier "blink.ino" contient le code du programme.
 - La diode led est connectée à GPIO_2.
 - Le bouton poussoir est connecté à GPIO_0.
 
+## Documentation
+
+- pinMode, http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.PinMode
+- 
