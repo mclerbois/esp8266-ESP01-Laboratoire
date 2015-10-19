@@ -14,14 +14,11 @@ Voici la liste des programmes à étudier et tester. (Dans l'ordre)
 - Blink
 - BlinkNoDelay
 - hello
-- actions
 - echo
+- actions
 - readTextFile
 - readJsonFile
 - WifiTcpClient (avec le programme tcpServer dans le dossier processing)
 - - modifier le SSID et le PSWD dans le fichier data.json
 - WifiTcpServer (avec le programme tcpClien dans le dossier processing)
 - - modifier le SSID et le PSWD dans le fichier data.json
-
-
-
