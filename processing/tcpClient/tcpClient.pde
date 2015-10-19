@@ -1,5 +1,5 @@
 /**
- * 
+ * Doit être utilisé avec WebTcpServer (esp8266)
  */
 
 
