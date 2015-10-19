@@ -1,5 +1,4 @@
-#if defined(__BOARDS_H_)
-#else
+#if !defined(__BOARDS_H_)
 #define     __BOARDS_H_
 
 #if !defined(USER_BOARD)
