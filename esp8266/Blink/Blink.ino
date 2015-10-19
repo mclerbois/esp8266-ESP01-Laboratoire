@@ -11,16 +11,16 @@
 
 #define USER_BOARD      ESP01   // déclaration de la carte utilisée ESP01 ou ESP201
 
-#include "boards.h"       // déclaration des bornes des cartes
+#include "boards.h"             // déclaration des bornes des cartes
 
-#define LED        GPIO_2      // GPIO_2 connected to LED 
-#define PUSHBUTTON GPIO_0      // connected to a push button
+#define LED        GPIO_2       // GPIO_2 connected to LED 
+#define PUSHBUTTON GPIO_0       // connected to a push button
 
 
 void setup() {
   pinMode(LED, OUTPUT);       // Initialize the GPIO_2 pin as an output
   pinMode(PUSHBUTTON,INPUT);  // Initialize the GPIO_0 pin as an input
- }
+  }
 
 // the loop function runs over and over again forever
 void loop() {
@@ -36,7 +36,7 @@ void loop() {
    * Si le bouton poussoir est activé, la temporisation vaudra 200 mSec.
    * 
    */
-  long tempo= digitalRead(PUSHBUTTON) ? 1000 : 200;
+  long tempo= digitalRead(PUSHBUTTON) ? 1000 : 200;  // set tempo for 1000 ou 200 milliSecondes
   digitalWrite( LED, LOW);           // Turn the LED on                                
   delay(tempo);                      // Wait for a 1000 or 200 mSec
   digitalWrite( LED, HIGH);          // Turn the LED off 
