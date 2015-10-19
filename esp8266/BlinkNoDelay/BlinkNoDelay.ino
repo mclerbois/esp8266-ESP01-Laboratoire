@@ -28,7 +28,7 @@ boolean ledState=false;
 void setup() {
   pinMode(LED, OUTPUT);       // Initialize the GPIO_2 pin as an output
   pinMode(PUSHBUTTON,INPUT);  // Initialize the GPIO_0 pin as an input
-  lastTime=millis();
+  lastTime=millis();          // lastime set to actual time
   tempo= digitalRead(PUSHBUTTON) ? LED_FLASH_SLOW : LED_FLASH_HIGH;
   digitalWrite( LED, ledState ? LOW : HIGH); // agir sur la diode led
  }
@@ -36,11 +36,11 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
  
-  if ( (millis()-lastTime) > tempo) { //alors la temporisation est écoulée
-    lastTime=millis(); // pour la prochaine tempo
+  if ( (millis()-lastTime) > tempo) {           //si la temporisation est écoulée
+    lastTime=millis();                          // pour la prochaine tempo
     tempo= digitalRead(PUSHBUTTON) ? LED_FLASH_SLOW : LED_FLASH_HIGH; // on relit le bouton poussoir
-    ledState=!ledState; // ledSate=NOT ledState
-    digitalWrite( LED, ledState ? LOW : HIGH); // agir sur la diode led
+    ledState=!ledState;                         // ledSate=NOT ledState
+    digitalWrite( LED, ledState ? LOW : HIGH);  // agir sur la diode led
     } // fin du if ( (millis()-lastTime) > tempo)       
     
 }
