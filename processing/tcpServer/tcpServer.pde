@@ -1,8 +1,5 @@
 /**
- * Chat Server 
- * by Tom Igoe. 
- * 
- * Press the mouse to stop the server.
+ * Doit être utilisé avec WifiTcpClient (esp8266)
  */
  
 
